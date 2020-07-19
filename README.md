@@ -1,4 +1,17 @@
+## 元リポジトリ
+
+https://github.com/pierluigiferrari/ssd_keras
+
+
+
+### 変更点
+
+* DataGenerator.create_hdf5_dataset を引数 resize を含めて実行すると bbox が適切に変換されない不具合の解消 [参考](https://github.com/pierluigiferrari/ssd_keras/issues/138)
+
+  
+
 ## SSD: Single-Shot MultiBox Detector implementation in Keras
+
 ---
 ### Contents
 

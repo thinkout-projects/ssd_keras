@@ -782,7 +782,6 @@ class DataGenerator:
 
             # Store the image.
             with Image.open(self.filenames[i]) as image:
-
                 image = np.asarray(image, dtype=np.uint8)
 
                 # Make sure all images end up having three channels.
@@ -792,10 +791,13 @@ class DataGenerator:
                     if image.shape[2] == 1:
                         image = np.concatenate([image] * 3, axis=-1)
                     elif image.shape[2] == 4:
-                        image = image[:,:,:3]
+                        image = image[:, :, :3]
 
                 if resize:
+                    sizeRaw = image.shape
                     image = cv2.resize(image, dsize=(resize[1], resize[0]))
+                    dSizeFactorH = sizeRaw[0] / (image.shape[0] * 1.0)
+                    dSizeFactorW = sizeRaw[1] / (image.shape[1] * 1.0)
 
                 # Flatten the image array and write it to the images dataset.
                 hdf5_images[i] = image.reshape(-1)
@@ -804,13 +806,23 @@ class DataGenerator:
 
             # Store the ground truth if we have any.
             if not (self.labels is None):
+                # rescale the ground thruth box coordinates if images were rescaled
+                if resize:
+                    for j in range(len(self.labels[i])):
+                        self.labels[i][j][self.labels_output_format.index('xmax')] = int(
+                            self.labels[i][j][self.labels_output_format.index('xmax')] / dSizeFactorW)
+                        self.labels[i][j][self.labels_output_format.index('xmin')] = int(
+                            self.labels[i][j][self.labels_output_format.index('xmin')] / dSizeFactorW)
+                        self.labels[i][j][self.labels_output_format.index('ymax')] = int(
+                            self.labels[i][j][self.labels_output_format.index('ymax')] / dSizeFactorH)
+                        self.labels[i][j][self.labels_output_format.index('ymin')] = int(
+                            self.labels[i][j][self.labels_output_format.index('ymin')] / dSizeFactorH)
 
                 labels = np.asarray(self.labels[i])
                 # Flatten the labels array and write it to the labels dataset.
                 hdf5_labels[i] = labels.reshape(-1)
                 # Write the labels' shape to the label shapes dataset.
                 hdf5_label_shapes[i] = labels.shape
-
             # Store the image ID if we have one.
             if not (self.image_ids is None):
 
