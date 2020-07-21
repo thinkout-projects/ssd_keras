@@ -10,7 +10,9 @@ https://github.com/pierluigiferrari/ssd_keras
 
   座標ズレ，複数個対応済み
 
-  
+* Keras 2.3.x 対応
+
+  K.image_dim_ordering() → K.common.image_dim_ordering()
 
 ## SSD: Single-Shot MultiBox Detector implementation in Keras
 
