@@ -1,4 +1,4 @@
-## SSD: Single-Shot MultiBox Detector implementation in Keras
+# SSD: Single-Shot MultiBox Detector implementation in Keras
 
 
 ## 元リポジトリ
