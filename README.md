@@ -17,6 +17,34 @@ https://github.com/pierluigiferrari/ssd_keras
 
   K.image_dim_ordering() → K.common.image_dim_ordering()
 
+
+
+
+
+## PASCAL VOC 形式について
+
+詳しくは [こちら](http://host.robots.ox.ac.uk/pascal/VOC/voc2007/htmldoc/voc.html)
+
+* size
+
+  depth: 3 は カラーの 3 色に相当．白黒であれば 1．
+
+* pose
+
+  向き．Left, Frontal, Right, Rear など．特になければ Unspecified ．
+
+* truncated 
+
+  `1` であればオブジェクトの一部分に対応していることを示す．例えば人に対する上半身など．
+
+  そうでなければ `0`
+
+* difficult
+
+  `1` であれば認識が難しいオブジェクトを示す．例えば他の要素を含まないと認識できないもの．
+
+  そうでなければ `0`
+
 ---
 ### Contents
 
