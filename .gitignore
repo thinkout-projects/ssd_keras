@@ -96,3 +96,6 @@ ENV/
 
 # Ignore any files and directories that begin with the word "local"
 local*
+
+# IDEA
+.idea/
