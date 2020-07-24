@@ -6,8 +6,11 @@
 https://github.com/pierluigiferrari/ssd_keras
 
 
+### 追加
+* 512x512 学習用の ssd512_training.ipynb
 
-### 変更点
+
+### 修正
 
 * DataGenerator.create_hdf5_dataset を引数 resize を含めて実行すると bbox が適切に変換されない不具合の解消 [参考](https://github.com/pierluigiferrari/ssd_keras/issues/138)
 
