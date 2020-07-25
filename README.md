@@ -16,6 +16,8 @@ https://github.com/pierluigiferrari/ssd_keras
 
   座標ズレ，複数個対応済み
 
+* evaluation 時に対象が 1 つも出てこじ評価できなかった場合にエラーが出る不具合の解消 [参考](https://github.com/pierluigiferrari/ssd_keras/pull/155)
+
 * Keras 2.3.x 対応
 
   K.image_dim_ordering() → K.common.image_dim_ordering()
