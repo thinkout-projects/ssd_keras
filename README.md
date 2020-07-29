@@ -18,11 +18,11 @@ https://github.com/pierluigiferrari/ssd_keras
 
 * evaluation 時に対象が 1 つも出てこず評価できなかった場合にエラーが出る不具合の解消 [参考](https://github.com/pierluigiferrari/ssd_keras/pull/155)
 
+* load_model を利用した場合に評価ができない不具合の解消 [参考](https://github.com/pierluigiferrari/ssd_keras/issues/191)
+
 * Keras 2.3.x 対応
 
   K.image_dim_ordering() → K.common.image_dim_ordering()
-
-
 
 
 
